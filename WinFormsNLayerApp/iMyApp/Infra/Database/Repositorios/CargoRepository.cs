@@ -30,8 +30,12 @@ namespace Database.Repositorios
                            @criadoPor,
                            @alteradoEm,
                            @alteradoPor";
-
-
+            var cmd = new SqlCommand();
+            cmd.CommandText = sql;
+            cmd.Parameters.AddWithValue("@nome",cargo.Nome);
+            cmd.Parameters.AddWithValue("@status",cargo.Status);
+            cmd.Parameters.AddWithValue("@criadoPor", cargo.CriadoPor);
+            cmd.Parameters.AddWithValue("@criadoEm", cargo.CriadoEm);
             sqlConnection.Close();
         }
     }
