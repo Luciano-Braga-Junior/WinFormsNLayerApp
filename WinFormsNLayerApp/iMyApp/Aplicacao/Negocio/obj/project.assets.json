@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {
-      "Database/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/Database.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Database.dll": {}
-        }
-      }
-    }
+    "net7.0": {}
   },
-  "libraries": {
-    "Database/1.0.0": {
-      "type": "project",
-      "path": "../../Infra/Database/Database.csproj",
-      "msbuildProject": "../../Infra/Database/Database.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net7.0": [
-      "Database >= 1.0.0"
-    ]
+    "net7.0": []
   },
   "packageFolders": {
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\": {},
@@ -58,11 +39,7 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {
-            "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Infra\\Database\\Database.csproj": {
-              "projectPath": "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Infra\\Database\\Database.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

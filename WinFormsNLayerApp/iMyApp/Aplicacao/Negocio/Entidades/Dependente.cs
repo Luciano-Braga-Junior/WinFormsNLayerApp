@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Negocio.Entidades
 {
-    internal class Depndente
+    internal class Dependente
     {
     }
 }

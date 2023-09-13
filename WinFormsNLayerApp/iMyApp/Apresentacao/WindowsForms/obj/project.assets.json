@@ -2,22 +2,9 @@
   "version": 3,
   "targets": {
     "net7.0-windows7.0": {
-      "Database/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v7.0",
-        "compile": {
-          "bin/placeholder/Database.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Database.dll": {}
-        }
-      },
       "Negocio/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
-        "dependencies": {
-          "Database": "1.0.0"
-        },
         "compile": {
           "bin/placeholder/Negocio.dll": {}
         },
@@ -28,11 +15,6 @@
     }
   },
   "libraries": {
-    "Database/1.0.0": {
-      "type": "project",
-      "path": "../../Infra/Database/Database.csproj",
-      "msbuildProject": "../../Infra/Database/Database.csproj"
-    },
     "Negocio/1.0.0": {
       "type": "project",
       "path": "../../Aplicacao/Negocio/Negocio.csproj",
