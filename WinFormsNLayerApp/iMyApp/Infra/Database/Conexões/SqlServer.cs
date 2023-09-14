@@ -8,7 +8,7 @@ namespace Database.Conexões
 {
     internal static class SqlServer
     {
-        internal static string StrConexaoHardCode()
+        internal static string StrConexao()
         {
             return "Server=localhost;Database=iMyApp;User Id=sa;Password=sql2022;";
         }

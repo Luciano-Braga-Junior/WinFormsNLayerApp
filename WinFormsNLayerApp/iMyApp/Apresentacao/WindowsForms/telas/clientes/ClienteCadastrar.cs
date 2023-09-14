@@ -1,7 +1,4 @@
-﻿using Negocio.Comum;
-using Negocio.Entidades;
-
-namespace WindowsForms.telas.clientes
+﻿namespace WindowsForms.telas.clientes
 {
     public partial class ClienteCadastrar : Form
     {
@@ -10,8 +7,6 @@ namespace WindowsForms.telas.clientes
         {
             InitializeComponent();
 
-
-          
         }
     }
 }

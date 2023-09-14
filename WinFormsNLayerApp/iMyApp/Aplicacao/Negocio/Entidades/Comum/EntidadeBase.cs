@@ -2,11 +2,11 @@
 {
     public abstract class EntidadeBase
     {
-        public int Id { get; set; }
+        public int Id { get; }
 
-        public DateTime CriadoEm { get; set; }
-        public string CriadoPor { get; set; }
-        public DateTime AlteradoEm { get; set; }
-        public string AlteradoPor { get; set; }
+        public DateTime CriadoEm { get; internal set; }
+        public string CriadoPor { get; internal set; }
+        public DateTime AlteradoEm { get; internal set; }
+        public string AlteradoPor { get; internal set; }
     }
 }

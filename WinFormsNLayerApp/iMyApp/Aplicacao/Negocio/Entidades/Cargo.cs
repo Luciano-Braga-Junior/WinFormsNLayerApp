@@ -9,12 +9,19 @@ namespace Negocio.Entidades
 {
     public class Cargo : EntidadeBase
     {
-        public int Id { get; set; }
         public string Nome { get; set; }
-        public string Status { get; set; }
-        public Cargo(string nome)
+        public bool Status { get; set; }
+
+        public Cargo(string nome, bool status) 
         {
             Nome = nome;
+            Status = status;
+
+            CriadoPor = "Luciano";
+            CriadoEm = DateTime.Now;
+
+            AlteradoPor = "Luciano";
+            AlteradoEm = DateTime.Now;
         }
     }
 }
