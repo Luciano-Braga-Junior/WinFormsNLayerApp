@@ -10,7 +10,7 @@ namespace Database.Conexões
     {
         internal static string StrConexao()
         {
-            return "Server=localhost;Database=iMyApp;User Id=sa;Password=sql2022;";
+            return @"Data Source=.\SQLEXPRESS;Initial Catalog=IMyApp;User ID=sa;Password=sql2022; Trusted_Connection=False; TrustServerCertificate=True;"; 
         }
     }
 }

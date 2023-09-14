@@ -23,10 +23,10 @@ namespace WindowsForms.telas.cargo
         private Button btnSalvar;
         private CheckBox chkStatus;
         private TextBox txtCargo;
-        private GroupBox gvCargos;
         private Label lblTodosCargos;
         private Button btnRecarregar;
         private BackgroundWorker backgroundWorker1;
+        private DataGridView gvCargos;
         private Button btnNovoCargo;
 
         private void InitializeComponent()
@@ -35,12 +35,13 @@ namespace WindowsForms.telas.cargo
             btnSalvar = new Button();
             chkStatus = new CheckBox();
             txtCargo = new TextBox();
-            gvCargos = new GroupBox();
             btnNovoCargo = new Button();
             lblTodosCargos = new Label();
             btnRecarregar = new Button();
             backgroundWorker1 = new BackgroundWorker();
+            gvCargos = new DataGridView();
             groupBoxCargo.SuspendLayout();
+            ((ISupportInitialize)gvCargos).BeginInit();
             SuspendLayout();
             // 
             // groupBoxCargo
@@ -82,15 +83,6 @@ namespace WindowsForms.telas.cargo
             txtCargo.Size = new Size(382, 23);
             txtCargo.TabIndex = 0;
             // 
-            // gvCargos
-            // 
-            gvCargos.BackColor = SystemColors.AppWorkspace;
-            gvCargos.Location = new Point(18, 117);
-            gvCargos.Name = "gvCargos";
-            gvCargos.Size = new Size(672, 320);
-            gvCargos.TabIndex = 1;
-            gvCargos.TabStop = false;
-            // 
             // btnNovoCargo
             // 
             btnNovoCargo.Location = new Point(12, 12);
@@ -118,18 +110,34 @@ namespace WindowsForms.telas.cargo
             btnRecarregar.TabIndex = 3;
             btnRecarregar.Text = "Recarregar";
             btnRecarregar.UseVisualStyleBackColor = true;
+            btnRecarregar.Click += btnRecarregar_Click;
+            // 
+            // gvCargos
+            // 
+            gvCargos.AllowUserToAddRows = false;
+            gvCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvCargos.Location = new Point(12, 117);
+            gvCargos.Name = "gvCargos";
+            gvCargos.ReadOnly = true;
+            gvCargos.RowTemplate.Height = 25;
+            gvCargos.Size = new Size(665, 329);
+            gvCargos.TabIndex = 4;
             // 
             // CargoView
             // 
             ClientSize = new Size(702, 458);
+            Controls.Add(gvCargos);
             Controls.Add(btnRecarregar);
             Controls.Add(lblTodosCargos);
-            Controls.Add(gvCargos);
             Controls.Add(btnNovoCargo);
             Controls.Add(groupBoxCargo);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Name = "CargoView";
+            StartPosition = FormStartPosition.CenterScreen;
+            Load += CargoView_Load;
             groupBoxCargo.ResumeLayout(false);
             groupBoxCargo.PerformLayout();
+            ((ISupportInitialize)gvCargos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -150,7 +158,7 @@ namespace WindowsForms.telas.cargo
 
             var resultado = cargoRepository.Inserir(novoCargo);
 
-            if(resultado)
+            if (resultado)
             {
                 MessageBox.Show("Cargo cadastrado com sucesso!");
             }
@@ -158,6 +166,18 @@ namespace WindowsForms.telas.cargo
             {
                 MessageBox.Show("Não foi possivel cadastrar o cargo!");
             }
+        }
+
+        private void CargoView_Load(object sender, EventArgs e)
+        {
+            var cargoRepository = new CargoRepository();
+            var dataTable = cargoRepository.ObterTodos();
+            gvCargos.DataSource = dataTable;
+        }
+
+        private void btnRecarregar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

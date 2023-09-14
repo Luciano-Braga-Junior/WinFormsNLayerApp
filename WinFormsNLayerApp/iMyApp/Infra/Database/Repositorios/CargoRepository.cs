@@ -42,6 +42,7 @@ namespace Database.Repositorios
                     cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
                     cmd.Parameters.AddWithValue("@alteradoEm", cargo.AlteradoEm);
                     var resposta = cmd.ExecuteNonQuery();
+                    connection.Close();
                     return resposta == 1;
                 }
             }
@@ -91,11 +92,17 @@ namespace Database.Repositorios
                 throw ex;
             }
         }
-        public DataTable ObterTodos(int cargoId)
+        public DataTable ObterTodos()
         {
             try
             {
-                var sql = @"";
+                var sql = @"SELECT [Id]
+                          ,[Nome]
+                          ,[Status]
+                          ,[CriadoEm]
+                          ,[AlteradoPor]
+                          ,[AlteradoEm]
+                      FROM [dbo].[Cargo]";
                 SqlDataAdapter dataAdapter = null;
                 var dataTable = new DataTable();
 

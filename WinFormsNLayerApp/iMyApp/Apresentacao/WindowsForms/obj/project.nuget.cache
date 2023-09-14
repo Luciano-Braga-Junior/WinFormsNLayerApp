@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VP7jot7Lr7l10Utdpc+sWQMmZILHXH3eVxQ7mFeqgrP4+NB0k9RlOh+J7zHdDCL4YDpfAsaw9tb28kgzF2kkwA==",
+  "dgSpecHash": "fJt+YwzMbGSHsckP8zRP/zSto3wtKmwBQ41pfMnps53SjmULagNCO3nrUbWY00qQ68ooRBrNDeVcAS1To6jSPQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Apresentacao\\WindowsForms\\WindowsForms.csproj",
+  "projectFilePath": "C:\\Users\\Senai.CEPEAS21103939\\Documents\\Downloads\\WinFormsNLayerApp\\iMyApp\\Apresentacao\\WindowsForms\\WindowsForms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

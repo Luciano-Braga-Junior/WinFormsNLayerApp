@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj": {}
+    "C:\\Users\\Senai.CEPEAS21103939\\Documents\\Downloads\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj": {
+    "C:\\Users\\Senai.CEPEAS21103939\\Documents\\Downloads\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj",
+        "projectUniqueName": "C:\\Users\\Senai.CEPEAS21103939\\Documents\\Downloads\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj",
         "projectName": "Negocio",
-        "projectPath": "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj",
+        "projectPath": "C:\\Users\\Senai.CEPEAS21103939\\Documents\\Downloads\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\Negocio.csproj",
         "packagesPath": "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Senai.CEPEAS21103939\\Source\\Repos\\WinFormsNLayerApp\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\obj\\",
+        "outputPath": "C:\\Users\\Senai.CEPEAS21103939\\Documents\\Downloads\\WinFormsNLayerApp\\iMyApp\\Aplicacao\\Negocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
