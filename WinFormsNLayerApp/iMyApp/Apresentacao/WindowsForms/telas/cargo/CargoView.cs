@@ -171,14 +171,12 @@ namespace WindowsForms.telas.cargo
 
         private void CargoView_Load(object sender, EventArgs e)
         {
-            var cargoRepository = new CargoRepository();
-            var dataTable = cargoRepository.ObterTodos();
-            gvCargos.DataSource = dataTable;
+            carregarCargos();
         }
 
         private void btnRecarregar_Click(object sender, EventArgs e)
         {
-
+            carregarCargos();
         }
 
         private void gvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -190,6 +188,12 @@ namespace WindowsForms.telas.cargo
                 txtCargo.Text = row.Cells[1].Value.ToString();
                 chkStatus.Checked = Convert.ToBoolean(row.Cells[2].Value.ToString());
             }
+        }
+        private void carregarCargos()
+        {
+            var cargoRepository = new CargoRepository();
+            var dataTable = cargoRepository.ObterTodos();
+            gvCargos.DataSource = dataTable;
         }
     }
 }

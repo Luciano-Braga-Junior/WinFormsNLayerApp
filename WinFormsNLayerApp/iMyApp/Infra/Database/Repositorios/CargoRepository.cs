@@ -56,13 +56,20 @@ namespace Database.Repositorios
         {
             try
             {
-                var sql = @"";
+                var sql = @"UPDATE [dbo].[Cargo]
+                   SET [Nome] = @nome
+                  ,[Status] = @Status
+                  ,[AlteradoEm] = @AlteradoEm
+                  ,[AlteradoPor] = @AlteradoPor
+                   WHERE Id = @id";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
+                    connection.Open();
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@nome", cargo.Nome);
                     var resposta = cmd.ExecuteNonQuery();
+                    connection.Close();
                     return resposta == 1;
                 }
             }
@@ -76,13 +83,16 @@ namespace Database.Repositorios
         {
             try
             {
-                var sql = @"";
+                var sql = @"DELETE FROM[dbo].[Cargo]
+                            WHERE < Search Conditions,,>";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
+                    connection.Open();
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@Id", cargoId);
                     var resposta = cmd.ExecuteNonQuery();
+                    connection.Close();
                     return resposta == 1;
                 }
             }
