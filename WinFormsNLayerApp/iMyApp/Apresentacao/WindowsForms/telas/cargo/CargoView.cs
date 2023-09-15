@@ -122,6 +122,7 @@ namespace WindowsForms.telas.cargo
             gvCargos.RowTemplate.Height = 25;
             gvCargos.Size = new Size(665, 329);
             gvCargos.TabIndex = 4;
+            gvCargos.CellMouseClick += gvCargos_CellMouseClick;
             // 
             // CargoView
             // 
@@ -178,6 +179,17 @@ namespace WindowsForms.telas.cargo
         private void btnRecarregar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void gvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                groupBoxCargo.Show();
+                DataGridViewRow row = gvCargos.Rows[e.RowIndex];
+                txtCargo.Text = row.Cells[1].Value.ToString();
+                chkStatus.Checked = Convert.ToBoolean(row.Cells[2].Value.ToString());
+            }
         }
     }
 }
