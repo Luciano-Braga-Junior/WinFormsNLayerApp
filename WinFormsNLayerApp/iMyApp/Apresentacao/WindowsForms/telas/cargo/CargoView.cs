@@ -14,6 +14,7 @@ namespace WindowsForms.telas.cargo
 {
     public partial class CargoView : Form
     {
+
         public CargoView()
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace WindowsForms.telas.cargo
         private Button btnRecarregar;
         private BackgroundWorker backgroundWorker1;
         private DataGridView gvCargos;
+        private DataGridViewButtonColumn Delete;
         private Button btnNovoCargo;
 
         private void InitializeComponent()
@@ -40,6 +42,7 @@ namespace WindowsForms.telas.cargo
             btnRecarregar = new Button();
             backgroundWorker1 = new BackgroundWorker();
             gvCargos = new DataGridView();
+            Delete = new DataGridViewButtonColumn();
             groupBoxCargo.SuspendLayout();
             ((ISupportInitialize)gvCargos).BeginInit();
             SuspendLayout();
@@ -82,6 +85,7 @@ namespace WindowsForms.telas.cargo
             txtCargo.Name = "txtCargo";
             txtCargo.Size = new Size(382, 23);
             txtCargo.TabIndex = 0;
+            txtCargo.TextChanged += txtCargo_TextChanged;
             // 
             // btnNovoCargo
             // 
@@ -116,6 +120,7 @@ namespace WindowsForms.telas.cargo
             // 
             gvCargos.AllowUserToAddRows = false;
             gvCargos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            gvCargos.Columns.AddRange(new DataGridViewColumn[] { Delete });
             gvCargos.Location = new Point(12, 117);
             gvCargos.Name = "gvCargos";
             gvCargos.ReadOnly = true;
@@ -123,6 +128,16 @@ namespace WindowsForms.telas.cargo
             gvCargos.Size = new Size(665, 329);
             gvCargos.TabIndex = 4;
             gvCargos.CellMouseClick += gvCargos_CellMouseClick;
+            // 
+            // Delete
+            // 
+            Delete.FlatStyle = FlatStyle.Flat;
+            Delete.HeaderText = "Ação";
+            Delete.Name = "Delete";
+            Delete.ReadOnly = true;
+            Delete.Text = "Excluir";
+            Delete.ToolTipText = "Delete o registro permanente";
+            Delete.UseColumnTextForButtonValue = true;
             // 
             // CargoView
             // 
@@ -143,35 +158,50 @@ namespace WindowsForms.telas.cargo
             PerformLayout();
         }
 
+        int id = -1;
         private void btnNovoCargo_Click(object sender, EventArgs e)
         {
+            txtCargo.Clear();
             groupBoxCargo.Visible = !groupBoxCargo.Visible;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            var nome = txtCargo.Text;
-            var status = chkStatus.Checked;
-
-            var novoCargo = new Cargo(nome, status);
-
+            var novoCargo = new Cargo(txtCargo.Text, chkStatus.Checked);
             var cargoRepository = new CargoRepository();
-
-            var resultado = cargoRepository.Inserir(novoCargo);
-
-            if (resultado)
+            if (id > 0)
             {
-                MessageBox.Show("Cargo cadastrado com sucesso!");
+
+                var atualizarCargo = new CargoRepository();
+                atualizarCargo.Atualizar(novoCargo, id);
+                MessageBox.Show("Cargo atualizado com sucesso");
             }
             else
             {
-                MessageBox.Show("Não foi possivel cadastrar o cargo!");
+                var nome = txtCargo.Text;
+                var status = chkStatus.Checked;
+
+
+                var resultado = cargoRepository.Inserir(novoCargo);
+
+                txtCargo.Text = novoCargo.CriadoPor;
+
+                if (resultado)
+                {
+                    MessageBox.Show("Cargo cadastrado com sucesso");
+
+                }
+                else
+                {
+                    MessageBox.Show("Não foi possível cadastra o cargo");
+                }
             }
         }
 
         private void CargoView_Load(object sender, EventArgs e)
         {
             carregarCargos();
+            groupBoxCargo.Visible = !groupBoxCargo.Visible;
         }
 
         private void btnRecarregar_Click(object sender, EventArgs e)
@@ -181,19 +211,54 @@ namespace WindowsForms.telas.cargo
 
         private void gvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            var cargoRepository = new CargoRepository();
+            DataGridViewRow row = gvCargos.Rows[e.RowIndex];
+
+            if (gvCargos.Columns[e.ColumnIndex].Name == "Delete")
+            {
+                if (MessageBox.Show("Deseja realmente deletar o registro?",
+                    "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBox.Show("Deletado com sucesso!");
+                {
+                    var resultado = cargoRepository.Deletar(int.Parse(row.Cells[1].Value.ToString()));
+                };
+                return;
+            }
+
             if (e.RowIndex >= 0)
             {
                 groupBoxCargo.Show();
-                DataGridViewRow row = gvCargos.Rows[e.RowIndex];
-                txtCargo.Text = row.Cells[1].Value.ToString();
-                chkStatus.Checked = Convert.ToBoolean(row.Cells[2].Value.ToString());
+                txtCargo.Text = row.Cells[2].Value.ToString();
+                chkStatus.Checked = Convert.ToBoolean(row.Cells[3].Value.ToString());
+
+
+                id = Convert.ToInt32(row.Cells[1].Value);
             }
         }
+
         private void carregarCargos()
         {
             var cargoRepository = new CargoRepository();
             var dataTable = cargoRepository.ObterTodos();
             gvCargos.DataSource = dataTable;
+        }
+
+        private void txtCargo_TextChanged(object sender, EventArgs e)
+        {
+            var nome = txtCargo.Text;
+            var cargo = new CargoRepository();
+
+            var reader = cargo.Complemento(nome);
+
+            AutoCompleteStringCollection autoCompleteStringCollection = new AutoCompleteStringCollection();
+
+            foreach ( var i in reader)
+            {
+                autoCompleteStringCollection.Add(i);
+            }
+            txtCargo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            txtCargo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            txtCargo.AutoCompleteCustomSource = autoCompleteStringCollection;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Database.Repositorios
 {
     public class CargoRepository
     {
+
         public bool Inserir(Cargo cargo)
         {
             try
@@ -51,8 +52,7 @@ namespace Database.Repositorios
                 throw ex;
             }
         }
-
-        public bool Atualizar(Cargo cargo)
+        public bool Atualizar(Cargo cargo, int id)
         {
             try
             {
@@ -67,7 +67,11 @@ namespace Database.Repositorios
                 {
                     connection.Open();
                     var cmd = new SqlCommand(sql, connection);
+                    cmd.Parameters.AddWithValue("@id", id);
                     cmd.Parameters.AddWithValue("@nome", cargo.Nome);
+                    cmd.Parameters.AddWithValue("@status", cargo.Status);
+                    cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
+                    cmd.Parameters.AddWithValue("@alteradoEm", cargo.AlteradoEm);
                     var resposta = cmd.ExecuteNonQuery();
                     connection.Close();
                     return resposta == 1;
@@ -84,7 +88,7 @@ namespace Database.Repositorios
             try
             {
                 var sql = @"DELETE FROM[dbo].[Cargo]
-                            WHERE < Search Conditions,,>";
+                            WHERE Id = @Id";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
@@ -133,5 +137,33 @@ namespace Database.Repositorios
                 throw ex;
             }
         }
+        public List<string> Complemento(string cargo)
+        {
+            var sql = @"SELECT [Nome] FROM [dbo].[Cargo]";
+
+            try
+            {
+                using (var connection = new SqlConnection(SqlServer.StrConexao()))
+                {
+                    connection.Open();
+                    SqlCommand com = new SqlCommand(sql, connection);
+
+                    SqlDataReader reader = com.ExecuteReader();
+
+                    var lista = new List<string>();
+                    while (reader.Read()) 
+                    {
+                        lista.Add(reader.GetString(1));
+                    }       
+                    return lista;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
+
