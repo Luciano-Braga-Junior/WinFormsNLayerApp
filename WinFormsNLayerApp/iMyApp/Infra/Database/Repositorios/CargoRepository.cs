@@ -1,18 +1,30 @@
 ﻿using Database.Conexões;
 using Microsoft.Data.SqlClient;
 using Negocio.Entidades;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Database.Repositorios
 {
+    /// <summary>
+    /// <c>CargoRepository</c> - Executa comandos SQL (CRUD) na tabela de [dbo].[Cargos]
+    /// <example>Exemplo:
+    ///     var cargoRepositorio = new CargoRepository();
+    /// </example>
+    /// </summary>
     public class CargoRepository
     {
-
+        /// <summary>
+        /// Insere um novo registro na tabela Cargo
+        /// <example>Exemplo:
+        /// <code>
+        ///     var cargoRepositorio = new CargoRepository();
+        ///     var cargo = new Cargo("Nome","Status","AlteradorPor");
+        ///     var resultado = cargoRepositorio.Incluir(cargo);
+        /// </code>
+        /// </example>
+        /// </summary>
+        /// <param name="cargo">Entidade->Cargo</param>
+        /// <returns>true ou false</returns>
         public bool Inserir(Cargo cargo)
         {
             try
