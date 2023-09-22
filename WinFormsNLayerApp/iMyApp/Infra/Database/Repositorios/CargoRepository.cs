@@ -32,17 +32,17 @@ namespace Database.Repositorios
                 var sql = @"INSERT INTO [dbo].[Cargo]
                     ([Nome]
                     ,[Status]
-                    ,[CriadoPor]
                     ,[CriadoEm]
-                    ,[AlteradoPor]
-                    ,[AlteradoEm])
+                    ,[CriadoPor]
+                    ,[AlteradoEm]
+                    ,[AlteradoPor])
                     VALUES
                     (@nome,
                     @status,
-                    @criadoPor,
                     @criadoEm,
-                    @alteradoPor,
-                    @alteradoEm)";
+                    @criadoPor,
+                    @alteradoEm,
+                    @alteradoPor)";
 
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
@@ -50,10 +50,10 @@ namespace Database.Repositorios
                     var cmd = new SqlCommand(sql, connection);
                     cmd.Parameters.AddWithValue("@nome", cargo.Nome);
                     cmd.Parameters.AddWithValue("@status", cargo.Status);
-                    cmd.Parameters.AddWithValue("@criadoPor", cargo.CriadoPor);
                     cmd.Parameters.AddWithValue("@criadoEm", cargo.CriadoEm);
-                    cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
+                    cmd.Parameters.AddWithValue("@criadoPor", cargo.CriadoPor);
                     cmd.Parameters.AddWithValue("@alteradoEm", cargo.AlteradoEm);
+                    cmd.Parameters.AddWithValue("@alteradoPor", cargo.AlteradoPor);
                     var resposta = cmd.ExecuteNonQuery();
                     connection.Close();
                     return resposta == 1;
@@ -165,7 +165,7 @@ namespace Database.Repositorios
                     var lista = new List<string>();
                     while (reader.Read()) 
                     {
-                        lista.Add(reader.GetString(1));
+                        lista.Add(reader.GetString(0));
                     }       
                     return lista;
                 }

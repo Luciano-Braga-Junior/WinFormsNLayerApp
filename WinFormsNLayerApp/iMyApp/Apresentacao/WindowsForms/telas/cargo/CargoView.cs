@@ -1,5 +1,6 @@
 ﻿using Database.Repositorios;
 using Negocio.Entidades;
+using Negocio.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -167,7 +168,14 @@ namespace WindowsForms.telas.cargo
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            
             var novoCargo = new Cargo(txtCargo.Text, chkStatus.Checked);
+            var erros = Validacaoes.getValidationErros(novoCargo);
+            
+            foreach (var erro in erros)
+            {
+                MessageBox.Show(erro.ErrorMessage);
+            }
             var cargoRepository = new CargoRepository();
             if (id > 0)
             {

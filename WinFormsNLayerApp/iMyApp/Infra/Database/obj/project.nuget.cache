@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "b4kezMEkWQMeaxQoACVM3oUTXdJqKLtJSvpnQd/5rPkMFG+RAZyrmpoxMwZddo1haVKnFGGbA76SQV4VdFp0Qw==",
+  "dgSpecHash": "52bATW21CvAMl7v4m38YeHZIBY7MUQri1DHDll3sFWw2cI1h/r+sevRCjEJJvtH/bJTmpQVkFhd3T0+jbAyZOA==",
   "success": true,
-  "projectFilePath": "D:\\Luciano\\BOSTA\\WinFormsNLayerApp\\iMyApp\\Infra\\Database\\Database.csproj",
+  "projectFilePath": "D:\\Luciano\\PUTA QUE PARIU\\WinFormsNLayerApp\\iMyApp\\Infra\\Database\\Database.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

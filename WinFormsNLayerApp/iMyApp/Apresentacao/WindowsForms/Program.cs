@@ -16,7 +16,7 @@ namespace WindowsForms
                 // see https://aka.ms/applicationconfiguration.
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MDIPrincipal());
+                Application.Run(new CargoView());
             }
             catch (Exception ex)
             {
