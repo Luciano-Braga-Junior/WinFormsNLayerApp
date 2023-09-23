@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mpB+F/J3GTBBFp8D9l45Z0wGf3ACFeN8Svm92qM5DOdd1FxvgcfZgtUSEMcls7uTGZa+9nyuAsbQ3mdCUY/17A==",
+  "dgSpecHash": "G6kK0HGqwLWiGzLRYRY6v7Ab0GA1Q55Ctx6zwn4z1SR1fvRg09NVyEz/iqaxSjTuPNhFdh92IEj9GRRH4DK0Fw==",
   "success": true,
   "projectFilePath": "D:\\Luciano\\PUTA QUE PARIU\\WinFormsNLayerApp\\iMyApp\\Apresentacao\\WindowsForms\\WindowsForms.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\dapper\\2.0.151\\dapper.2.0.151.nupkg.sha512",
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Senai.CEPEAS21103939\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.1\\microsoft.data.sqlclient.5.1.1.nupkg.sha512",

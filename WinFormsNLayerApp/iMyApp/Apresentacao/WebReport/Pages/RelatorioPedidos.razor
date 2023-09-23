@@ -1,0 +1,45 @@
+﻿@page "/relatorio"
+@using Database.Repositorios
+@using Negocio.Entidades;
+<h3>Relatorio De Pedidos</h3>
+@if (listaProduto == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Preco</th>
+                <th>Estoque</th>
+                <th>Categoria</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produto in listaProduto)
+            {
+                <tr>
+                    <td>@produto.Codigo.ToString()</td>
+                    <td>@produto.Nome</td>
+                    <td>@produto.Preco.ToString("C")</td>
+                    <td>@produto.Categoria</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    ProdutoRepository produtoRepository = new ProdutoRepository();
+    private List<Produto> listaProduto = new List<Produto>();
+
+    protected override void OnInitialized()
+    {
+        var relatorioEstoque = produtoRepository.ObterRelatorioEstoque();
+        listaProduto = relatorioEstoque;
+        base.OnInitialized();
+    }
+}

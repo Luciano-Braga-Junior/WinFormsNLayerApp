@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Infra\Database\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MordernFlatUi", "MordernFlatUi\MordernFlatUi.csproj", "{5EF49591-9101-42E0-940E-34EBF8559F8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebReport", "Apresentacao\WebReport\WebReport.csproj", "{C2501B86-7BC3-49BA-942A-38EC47D5BBEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{5EF49591-9101-42E0-940E-34EBF8559F8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5EF49591-9101-42E0-940E-34EBF8559F8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5EF49591-9101-42E0-940E-34EBF8559F8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2501B86-7BC3-49BA-942A-38EC47D5BBEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2501B86-7BC3-49BA-942A-38EC47D5BBEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2501B86-7BC3-49BA-942A-38EC47D5BBEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2501B86-7BC3-49BA-942A-38EC47D5BBEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{9CCCD8B3-CDD7-4272-93A8-CB628505C658} = {C2AAC835-965C-44D9-B843-828FE8B3C466}
 		{21CB773E-E8F7-4305-9F13-FEF1C7DEBB0F} = {5D6AF360-32DF-4189-8627-24814424776C}
 		{5EF49591-9101-42E0-940E-34EBF8559F8E} = {01E77A2E-5A95-4353-B07E-3F7453C862FB}
+		{C2501B86-7BC3-49BA-942A-38EC47D5BBEC} = {01E77A2E-5A95-4353-B07E-3F7453C862FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {51F27A60-44DC-4310-84D8-F4A88E96AAB9}
