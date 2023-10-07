@@ -15,8 +15,8 @@ namespace WindowsForms.telas.clientes.Fornecedores
         private IFornecedorRepository _fornecedorRepository;
         public FornecedorViwe()
         {
-            _fornecedorRepository = IFornecedorRepository();
             InitializeComponent();
+            _fornecedorRepository = new FornecedorRepository();
         }
     }
 }

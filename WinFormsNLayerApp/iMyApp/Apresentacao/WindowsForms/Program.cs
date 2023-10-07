@@ -1,4 +1,5 @@
 using WindowsForms.telas.cargo;
+using WindowsForms.telas.clientes.Fornecedores;
 
 namespace WindowsForms
 {
@@ -16,7 +17,7 @@ namespace WindowsForms
                 // see https://aka.ms/applicationconfiguration.
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new CargoView());
+                Application.Run(new FornecedorViwe());
             }
             catch (Exception ex)
             {
